@@ -1,0 +1,39 @@
+//////////////////////////////////////////////////////////////////////////
+// @Author: Jinbo Chen
+// @Design: ZOH_Reconstruction	// zero order reconstruction from UP/DN spikes of comparator
+// @Date:   2021-12-22
+// @E-mail: chenjinbo@westlake.edu.cn
+// @Last change: 2021-12-22
+//////////////////////////////////////////////////////////////////////////
+// VerilogA for LCADCVerilogA, ZOH_Reconstruction, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module ZOH_Reconstruction (up, dn, out);
+input up, dn;
+output out;
+electrical up, dn, out;
+
+parameter real vth_spike = 300m;	// to judge the occurrence of up/dn spikes
+real temp;	// to store reconstruction value
+
+analog begin 
+
+	@(initial_step) begin
+		temp = 0;	// initialize temp value
+	end
+
+	@(cross(V(up)-vth_spike, +1)) begin	// up crossing
+		temp = temp + 1;
+	end
+	
+	@(cross(V(dn)-vth_spike, +1)) begin	// down crossing
+		temp = temp - 1;
+	end
+	
+	V(out) <+ temp;
+
+end
+
+endmodule

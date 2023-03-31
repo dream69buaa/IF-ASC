@@ -1,0 +1,19 @@
+
+// VerilogA for LCADCVerilogA, control_logic, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module control_logic(inc, dec, up, dn);
+
+input inc, dec;
+output up, dn;
+electrical inc, dec, up, dn;
+
+
+   analog begin
+      V(up) <+ V(inc);
+	  V(dn) <+ V(dec);
+   end
+
+endmodule
