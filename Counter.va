@@ -1,4 +1,8 @@
-// VerilogA for LCADCVerilogA, Counter, veriloga
+//////////////////////////////////////////////////////////////////////////
+// @Author: Jinbo Chen
+// @Design: Counter modules for IF-ASC evaluation
+// @E-mail: chenjinbo@westlake.edu.cn
+//////////////////////////////////////////////////////////////////////////
 
 `include "constants.vams"
 `include "disciplines.vams"
