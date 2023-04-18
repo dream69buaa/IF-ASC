@@ -1,11 +1,8 @@
 //////////////////////////////////////////////////////////////////////////
 // @Author: Jinbo Chen
-// @Design: ZOH_Reconstruction	// zero order reconstruction from UP/DN spikes of comparator
-// @Date:   2021-12-22
+// @Design: zero order reconstruction from UP/DN spikes of comparator in IF-ASC
 // @E-mail: chenjinbo@westlake.edu.cn
-// @Last change: 2021-12-22
 //////////////////////////////////////////////////////////////////////////
-// VerilogA for LCADCVerilogA, ZOH_Reconstruction, veriloga
 
 `include "constants.vams"
 `include "disciplines.vams"
