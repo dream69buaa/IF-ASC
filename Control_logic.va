@@ -1,5 +1,5 @@
 
-// VerilogA for LCADCVerilogA, control_logic, veriloga
+
 
 `include "constants.vams"
 `include "disciplines.vams"
