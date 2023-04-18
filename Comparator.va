@@ -1,3 +1,5 @@
+// This comparator model file is from Cadence Virtuoso IC618.
+
 `include "discipline.h"
 `include "constants.h"
 
