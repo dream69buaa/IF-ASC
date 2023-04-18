@@ -1,11 +1,8 @@
 //////////////////////////////////////////////////////////////////////////
 // @Author: Jinbo Chen
-// @Design: signal folding circuit of LC-ADC, the simplest behavioral modelling
-// @Date:   2021-11-23
+// @Design: signal folding circuit of IF-ASC
 // @E-mail: chenjinbo@westlake.edu.cn
-// @Last change: 2021-11-23
 //////////////////////////////////////////////////////////////////////////
-// VerilogA for LCADCVerilogA, signal_folding, veriloga
 
 `include "constants.vams"
 `include "disciplines.vams"
@@ -15,9 +12,9 @@ module signal_folding(signal_in, up, dn, signal_out);
 input signal_in, up, dn;
 output signal_out;
 electrical signal_in, up, dn, signal_out;
-parameter real lsb = 10m;	// LSB of LC-ADC (VH - VL)
+parameter real lsb = 10m;	// LSB of IF-ASC (VH - VL)
 // initialize 'deltaV' to avoid fake crossing after signal_in +/- deltaV. So the vaule of deltaV is usually smaller than lsb. 
-// Here, deltaV is 1/2 lsb, which is the same as the definition of 'Vcm' in Ref: Mengdi Song, 2019.
+// Here, deltaV is 1/2 lsb.
 parameter real deltaV = 5m; // signal_out = signal_in +/- deltaV
 parameter real vth = 10m;	// to judge the occurrence of up/dn spikes
 real change;	// to store the number of variation times, i.e. the times of plus or minus lsb
@@ -28,7 +25,7 @@ analog begin
 		change = 0;
 	end
 
-	// Use an integrated vsin value based on plus and minus delta_V to store the folded vsin. This is to consider behavior pattern of VerilogA code.
+	// Use an integrated V_singal value based on plus and minus delta_V to store the folded V_singal. This is to consider behavior pattern of VerilogA code.
 	temp = V(signal_in) + change * deltaV;	// use temp and change to store the temporary value of folded signal_in.
 
 	@(cross(V(up)-vth, +1)) begin	// up crossing
