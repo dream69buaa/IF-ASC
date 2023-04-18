@@ -1,5 +1,5 @@
 # IF-ASC
-Here we present the Integrate-and-Fire Analog-to-Spike Converter (IF-ASC) VerilogA models.
+Here we present the Integrate-and-Fire Analog-to-Spike Converter (IF-ASC) VerilogA models. The IF-ASC uses integrate-and-fire sampling, also called level-crossing sampling, to achieve low-power compressive sampling for neuromorphic biomedical systems.
 
 The following two figures show the illustration of IF-ASC modeling and evaluation process. VerilogA implementation of IF-ASC consists of 3 modules: signal folding circuit, comparator, and control logic. Performance calculation modules include zero-order reconstruction and counters for compression ratio calculation.
 
